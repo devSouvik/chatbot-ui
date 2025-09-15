@@ -7,6 +7,7 @@
 		"preview": "vite preview"
 	},
 	"dependencies": {
+		"markdown-to-jsx": "^7.7.13",
 		"preact": "^10.26.9",
 		"preact-iso": "^2.10.0",
 		"preact-render-to-string": "^6.6.1",

@@ -1,7 +1,8 @@
-import { useEffect, useState, useRef } from "preact/hooks";
-import { FaUser, FaRobot } from "react-icons/fa";
-import styles from "./ChatHistory.module.css";
 import { TargetedMouseEvent } from "preact";
+import { useEffect, useRef, useState } from "preact/hooks";
+import { FaRobot, FaUser } from "react-icons/fa";
+import styles from "./ChatHistory.module.css";
+import Markdown from 'markdown-to-jsx'
 
 interface Message {
   type: "human" | "assistant";
@@ -94,7 +95,9 @@ export default function ChatHistory({ sessionId, messages, setMessages, onNewCha
                 {msg.type === "human" ? <FaUser /> : <FaRobot />}
               </div>
               <div className={styles.bubble}>
-                {msg.content || (msg.type === "assistant" && "Typing...")}
+                <Markdown>
+                  {msg.content || (msg.type === "assistant" && "Typing...")}
+                </Markdown>
               </div>
             </div>
           ))}
